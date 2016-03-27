@@ -1,0 +1,9 @@
+template(name='dashboard')
+  .row-fluid
+    .col-md-6
+      | Dashboard
+    .col-md-6
+      each actions
+        p {{ name }}
+        p {{ votes }} Votes
+        

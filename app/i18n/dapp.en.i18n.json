@@ -3,8 +3,9 @@
 		"app": {
 			"title": "Entropy"
 			, "buttons": {
-				"view1": "Connection"
-				, "view2": "Accounts"
+				"view1": "Connection",
+        "view2": "Accounts",
+        "dashboard": "Dashboard"
 			}
 			, "headers": {
 				"identicon": "Identicon"
