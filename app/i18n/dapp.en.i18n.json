@@ -1,15 +1,15 @@
 {
 	"dapp": {
 		"app": {
-			"title": "My Ethereum ÐApp"
+			"title": "Entropy"
 			, "buttons": {
-				"view1": "View1"
-				, "view2": "View2"
+				"view1": "Connection"
+				, "view2": "Accounts"
 			}
 			, "headers": {
 				"identicon": "Identicon"
 				, "address": "Address"
-				, "balance": "Balance"
+				, "balance": "Funds"
 				, "account": "Account"
 				, "solidity": "Solidity Code"
 				, "coinbase": "Coinbase"
@@ -20,7 +20,7 @@
 				, "mining": "Mining"
 				, "gasPrice": "Gas Price"
 			}
-			, "copyright": "Copyright © My Ethereum ÐApp 2015. All Rights Reserved"
+			, "copyright": "Copyright © Entropy 2016. All Rights Reserved"
 		}
 		, "components": {
 			"balance": {
@@ -29,7 +29,7 @@
 			}
 			, "accounts": {
 				"header": "My Accounts"
-				, "description": "These are your Ethereum addresses. The identicons are generated based on the address value. Note, balance is static."			
+				, "description": "These are your Ethereum addresses. The identicons are generated based on the address value. Note, balance is static."
 			}
 			, "multiplyContract": {
 				"header": "Multiply Contract"
@@ -39,7 +39,7 @@
 				, "placeholder": "Number To Multiply"
 			}
 			, "networkHealth": {
-				"header": "Network Health"			
+				"header": "Network Health"
 			}
 		}
 		, "view1": {

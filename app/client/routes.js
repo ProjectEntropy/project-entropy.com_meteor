@@ -34,10 +34,9 @@ The receive route, showing the wallet overview
 
 // Default route
 Router.route('/', {
-    template: 'views_view1',
+    template: 'dashboard',
     name: 'home'
 });
-
 // Route for view1
 Router.route('/view1', {
     template: 'views_view1',

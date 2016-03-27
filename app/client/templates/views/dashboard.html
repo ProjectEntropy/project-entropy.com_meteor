@@ -1,0 +1,13 @@
+<template name="dashboard">
+ <div class="row-fluid">
+	<div class="col-md-6">
+ 		Dashboard
+	</div>
+	<div class="col-md-6">
+    {{#each actions}}
+      <p>{{ name }}</p>
+      <p>{{ votes }} Votes</p>
+    {{/each}}
+	</div>
+ </div>
+</template>
