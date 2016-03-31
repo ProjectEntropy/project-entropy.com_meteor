@@ -10,6 +10,10 @@ Template['dashboard'].helpers({
         {
           name: "Sail to Fuji",
           votes: 30
+        },
+        {
+          name: "Fix mast",
+          votes: 10
         }
       ];
   }
