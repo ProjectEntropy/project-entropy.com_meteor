@@ -1,7 +1,16 @@
 template(name='dashboard')
   .row-fluid
     .col-md-6
-      Dashboard
+      h5 Dashboard
+      p 
+        | Total available funds
+        strong #{ available_ether } 
+        | ether
+      p 
+        | Total needed funds
+        strong #{ needed_ether } 
+        | ether
+            
     .col-md-6
       each actions
         +action
