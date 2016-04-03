@@ -1,6 +1,6 @@
 template(name='dashboard')
   .row-fluid
-    .col-md-6
+    .col-md-3
       h5 Dashboard
       p 
         | Total available funds
@@ -10,7 +10,30 @@ template(name='dashboard')
         | Total needed funds
         strong #{ needed_ether } 
         | ether
-            
-    .col-md-6
-      each actions
-        +action
+      hr
+      .btn
+        | Buy Tokens
+        
+      hr
+      | You are not 
+      a logged in
+    .col-md-3
+      h3 Done
+      table
+        each actions
+          +action_small
+    
+    .col-md-3
+      h3 Now
+      table
+        each actions
+          +action_small
+
+    .col-md-3
+      h3 Soon
+      table
+        each actions
+          +action
+      hr
+      .btn.btn-success.btn-xxl
+        | New Proposal

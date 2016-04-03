@@ -47,3 +47,8 @@ mquandalle:jade
 standard-minifier-css
 standard-minifier-js
 coffeescript
+multiply:iron-router-progress
+meteorhacks:npm
+
+
+npm-container

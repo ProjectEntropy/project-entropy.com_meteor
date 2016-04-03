@@ -21,7 +21,9 @@ Router.configure({
     yieldRegions: {
         'layout_header': {to: 'header'}
         , 'layout_footer': {to: 'footer'}
-    }
+    },
+    progress: false,
+    progressSpinner : true
 });
 
 // ROUTES
