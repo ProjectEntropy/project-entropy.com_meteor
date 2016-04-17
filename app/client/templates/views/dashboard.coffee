@@ -7,7 +7,7 @@ Template Controllers
 Template['dashboard'].helpers
   actions: ->
     Actions.find({})
-    
+
     # [
     #   {
     #     name: 'Sail to Fuji'
@@ -73,12 +73,14 @@ Template['dashboard'].events 'submit .new-action': (event) ->
   }
 
   Actions.insert data, (error, result) ->
-    console.log error
+    if result
+      # Clear form
+      name_el.value = ''
+      description_el.value = ''
+      tags_el.value = ''
+      $(target).find('.error').html('')
+    else
+      $(target).find('.error').html(error)
 
-  # Clear form
-
-  name_el.value = ''
-  description_el.value = ''
-  tags_el.value = ''
 
   return
