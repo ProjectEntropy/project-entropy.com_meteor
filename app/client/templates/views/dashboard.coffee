@@ -26,6 +26,23 @@ Template['dashboard'].helpers
         tags: [ 'food' ]
       }
     ]
+
+  done: ->
+    [
+      {
+        name: 'Buy 50\' catamaran for $500,000'
+        description: 'We need a suitable boat for this to work'
+        votes: 60
+        tags: [ 'urgent' ]
+      }
+      {
+        name: 'Buy food'
+        description: 'To live, we need food'
+        votes: 10
+        tags: [ 'food', 'urgent' ]
+      }
+    ]
+
   available_ether: ->
     25.237653
   needed_ether: ->
