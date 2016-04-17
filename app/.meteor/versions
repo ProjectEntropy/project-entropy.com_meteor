@@ -1,4 +1,8 @@
 3stack:bignumber@2.0.7
+aldeed:collection2@2.9.1
+aldeed:collection2-core@1.1.1
+aldeed:schema-deny@1.0.1
+aldeed:schema-index@1.0.1
 aldeed:simple-schema@1.5.3
 alexvandesande:identicon@2.0.2
 allow-deny@1.0.3

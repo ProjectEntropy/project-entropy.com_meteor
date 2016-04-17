@@ -35,5 +35,11 @@ template(name='dashboard')
         each actions
           +action
       hr
-      .btn.btn-success.btn-xxl
-        | New Proposal
+      form.new-action
+        .form-group
+          input(type='text', name='name', placeholder='name')
+        .form-group
+          textarea.form-control(rows='3', name='description', placeholder='description')
+        .form-group
+          input(type='text', name='tags', placeholder='tags')
+        input(type='submit', value='Create').btn.btn-success.btn-xxl
