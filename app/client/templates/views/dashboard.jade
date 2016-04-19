@@ -1,3 +1,13 @@
+template(name='list')
+  .col-sm-3
+    .well
+      h5
+        a(href= '/actions') 
+          | #{ name }
+      table
+        each collection
+          +action
+
 template(name='dashboard')
   .row-fluid
     .col-sm-3
@@ -17,25 +27,10 @@ template(name='dashboard')
       hr
       | You are not 
       a logged in
-    .col-sm-3
-      h3 
-        a(href= '/actions') 
-          | Done
-      table
-        each done
-          +action_small
+    +list(name = 'Done' collection = done)
+    +list(name = 'Now' collection = actions)
+    +list(name = 'Soon' collection = actions)
     
-    .col-sm-3
-      h3 Now
-      table
-        each actions
-          +action_small
-
-    .col-sm-3
-      h3 Soon
-      table
-        each actions
-          +action
       hr
       form.new-action
         .form-group
