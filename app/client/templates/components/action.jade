@@ -9,7 +9,7 @@ template(name = "action")
       .info-container
         a.thread-title
           h4 
-            | #{ name } 
+            a(href="actions/#{_id}") #{ name } 
             each tags
               span.badge #{ this }
           

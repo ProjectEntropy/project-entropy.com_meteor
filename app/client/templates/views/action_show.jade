@@ -1,0 +1,14 @@
+template(name='action_show')
+  
+  .info-container
+    a.thread-title
+      h4 #{ name } 
+        each tags
+          span.badge #{ this }
+      
+    h6.thread-info
+      p #{ description }
+
+    ul.buttons
+      li
+        a comments

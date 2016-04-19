@@ -39,6 +39,24 @@ Router.route('/', {
     template: 'dashboard',
     name: 'home'
 });
+
+// actions
+Router.route('/actions', {
+    template: 'actions',
+    name: 'actions'
+});
+
+// action
+Router.route('/actions/:_id', {
+    template: 'action_show',
+    name: 'action',
+    data: function(){
+      return Actions.findOne(this.params._id)
+    }
+
+});
+
+
 // Route for view1
 Router.route('/view1', {
     template: 'views_view1',

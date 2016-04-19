@@ -1,6 +1,6 @@
 template(name='dashboard')
   .row-fluid
-    .col-md-3
+    .col-sm-3
       h5 Dashboard
       p 
         | Total available funds
@@ -17,19 +17,21 @@ template(name='dashboard')
       hr
       | You are not 
       a logged in
-    .col-md-3
-      h3 Done
+    .col-sm-3
+      h3 
+        a(href= '/actions') 
+          | Done
       table
         each done
           +action_small
     
-    .col-md-3
+    .col-sm-3
       h3 Now
       table
         each actions
           +action_small
 
-    .col-md-3
+    .col-sm-3
       h3 Soon
       table
         each actions
