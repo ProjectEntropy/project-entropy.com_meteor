@@ -26,9 +26,8 @@ template(name='dashboard')
     .col-sm-3
       h5 Dashboard
       p 
-        | Total available funds
-        strong #{ available_ether } 
-        | ether
+        +components_balance
+        
       p 
         | Total needed funds
         strong #{ needed_ether } 

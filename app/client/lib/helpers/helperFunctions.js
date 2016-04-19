@@ -68,6 +68,10 @@ Helpers.moment = function(time){
 };
 
 
+Helpers.formatNumber = function(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
 /**
 Formats a timestamp to any format given.
 
@@ -80,7 +84,7 @@ Formats a timestamp to any format given.
 **/
 
 Helpers.formatTime = function(time, format) { //parameters
-    
+
     // make sure not existing values are not Spacebars.kw
     if(format instanceof Spacebars.kw)
         format = null;
