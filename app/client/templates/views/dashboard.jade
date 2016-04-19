@@ -7,7 +7,20 @@ template(name='list')
       table
         each collection
           +action
-
+        if create
+          tr
+            td(colspan="2")
+              hr
+              form.new-action
+                .form-group
+                  input(type='text', name='name', placeholder='name')
+                .form-group
+                  textarea.form-control(rows='3', name='description', placeholder='description')
+                .form-group
+                  input(type='text', name='tags', placeholder='tags')
+                .error
+                input(type='submit', value='Create').btn.btn-success.btn-lg
+                
 template(name='dashboard')
   .row-fluid
     .col-sm-3
@@ -27,17 +40,7 @@ template(name='dashboard')
       hr
       | You are not 
       a logged in
-    +list(name = 'Done' collection = done)
-    +list(name = 'Now' collection = actions)
-    +list(name = 'Soon' collection = actions)
-    
-      hr
-      form.new-action
-        .form-group
-          input(type='text', name='name', placeholder='name')
-        .form-group
-          textarea.form-control(rows='3', name='description', placeholder='description')
-        .form-group
-          input(type='text', name='tags', placeholder='tags')
-        .error
-        input(type='submit', value='Create').btn.btn-success.btn-xxl
+    +list(name= 'Done' collection=done    )
+    +list(name= 'Now'  collection=actions )
+    +list(name= 'Soon' collection=actions create=true)
+  
