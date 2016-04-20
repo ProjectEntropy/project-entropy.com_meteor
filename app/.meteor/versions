@@ -67,7 +67,7 @@ localstorage@1.0.8
 logging@1.0.11
 markdown@1.0.8
 matb33:collection-hooks@0.8.1
-mdg:validation-error@0.2.0
+mdg:validation-error@0.5.1
 meteor@1.1.13
 meteor-base@1.0.3
 meteorhacks:async@1.0.0
