@@ -1,7 +1,12 @@
 template(name='actions')
   .row-fluid
     .col-sm-8
-      h3 Actions
-      table
-        each actions
-          +action
+      
+      .panel.panel-default
+        .panel-heading
+      
+          h3 Actions
+        .panel-body
+          table
+            each actions
+              +action
