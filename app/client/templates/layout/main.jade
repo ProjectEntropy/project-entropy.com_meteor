@@ -1,0 +1,8 @@
+template(name='layout_main')
+  // The dynamic page header
+  | {{> yield region="header"}}
+  // content
+  main.container-fluid.main-container
+    | {{> yield}}
+  // The dynamic page footer
+  | {{> yield region="footer"}}
