@@ -37,9 +37,15 @@ Router.route '/',
 # actions
 Router.route '/actions',
   template: 'actions'
-  name: 'actions'
+  name: 'all_actions'
+
+Router.route '/actions/:_filter',
+  template: 'actions'
+  name: 'filtered_actions'
+  data: ->
+    filter: @params._filter
 # action
-Router.route '/actions/:_id',
+Router.route '/actions/:_filter/:_id',
   template: 'action_show'
   name: 'action'
   data: ->

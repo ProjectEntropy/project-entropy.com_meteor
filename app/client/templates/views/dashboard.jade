@@ -1,35 +1,40 @@
 template(name='list')
-  .col-sm-3
-    .panel.panel-default
-      .panel-heading
-        strong
-          a(href= '/actions') 
-            | #{ name }
-      
-      .panel-body
-        table
-          each collection
-            +action
-          if create
-            tr
-              td(colspan="2")
-                hr
-                form.new-action
-                  .form-group
-                    input(type='text', name='name', placeholder='name')
-                  .form-group
-                    textarea.form-control(rows='3', name='description', placeholder='description')
-                  .form-group
-                    input(type='text', name='tags', placeholder='tags')
-                  .error
-                  input(type='submit', value='Create').btn.btn-success.btn-lg
-                  
+  .panel.panel-default
+    .panel-heading
+      h3.panel-title.pull-left
+        if icon
+          .fa(class=icon)
+        a(href= '/actions/#{name}') 
+          | #{ name }
+      if create
+        .btn.btn-default.btn-sm.pull-right
+          | Add
+      .clearfix
+    
+    .panel-body
+      table
+        each collection
+          +action
+        if create
+          tr
+            td(colspan="2")
+              hr
+              form.new-action
+                .form-group
+                  input(type='text', name='name', placeholder='name')
+                .form-group
+                  textarea.form-control(rows='3', name='description', placeholder='description')
+                .form-group
+                  input(type='text', name='tags', placeholder='tags')
+                .error
+                input(type='submit', value='Create').btn.btn-success.btn-lg
+                
 template(name='dashboard')
   .row-fluid
-    .col-sm-3
+    .col-sm-4
       .panel.panel-default
         .panel-body
-          h5 Dashboard
+          i.fa.fa-home
           p
             +components_balance
             
@@ -37,14 +42,20 @@ template(name='dashboard')
             | Total needed funds
             strong #{ needed_ether } 
             | ether
-          hr
-          .btn
-            | Buy Tokens
+      .panel.panel-default
+        .panel-body
+          p
+            i.fa.fa-user
+            | You are not 
+            a logged in
             
-          hr
-          | You are not 
-          a logged in
-    +list(name= 'Done' collection=done    )
-    +list(name= 'Now'  collection=actions )
-    +list(name= 'Soon' collection=actions create=true)
+          p
+            .btn
+              | Get Tokens
+              
+      +list(name= 'Done' icon= 'fa-check' collection=done    )
+    .col-sm-4
+      +list(name= 'Now'  icon= 'fa-gear' collection=actions )
+    .col-sm-4
+      +list(name= 'Soon' icon= 'fa-clock-o' collection=actions create=true)
   

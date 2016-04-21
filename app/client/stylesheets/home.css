@@ -7,7 +7,8 @@
 
 .panel-body
 {
-  overflow: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 body{
@@ -15,4 +16,12 @@ body{
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
+}
+
+.panel-heading h3 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: normal;
+  width: 75%;
 }

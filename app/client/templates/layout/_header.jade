@@ -7,7 +7,20 @@ template(name='layout_header')
       ul.nav.navbar-nav.navbar-right
         li
           a(href="{{ pathFor 'dashboard' }}")
+            i.fa.fa-cogs
             | Dashboard
+            
+        li
+          a(href="{{ pathFor 'dashboard' }}") 
+            i.fa.fa-globe
+            | Story
+        
+        li
+          a(href="{{ pathFor 'dashboard' }}") 
+            i.fa.fa-map
+            | Map
+        
+            
         li
           a(href="{{ pathFor 'view1' }}")
             | {{{i18n 'dapp.app.buttons.view1'}}}
