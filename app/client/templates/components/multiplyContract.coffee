@@ -13,8 +13,6 @@ Note, the MultiplyContract object is now housed in client/lib/contracts/Multiply
 @constructor
 ###
 
-# solidity source code
-source = '' + 'contract test {\n' + '   function multiply(uint a) returns(uint d) {\n' + '       return a * 7;\n' + '   }\n' + '}\n'
 # Construct Multiply Contract Object and contract instance
 contractInstance = undefined
 
@@ -23,8 +21,6 @@ Template['components_multiplyContract'].onRendered ->
   TemplateVar.set 'state', isInactive: true
   return
 
-Template['components_multiplyContract'].helpers 'source': ->
-  source
 
 Template['components_multiplyContract'].events
   'click .btn-default': (event, template) ->
@@ -34,7 +30,7 @@ Template['components_multiplyContract'].events
     web3.eth.defaultAccount = web3.eth.coinbase
     # assemble the tx object w/ default gas value
     transactionObject =
-      data: MultiplyContract.bytecode
+      data: Organization.bytecode
       gasPrice: web3.eth.gasPrice
       gas: 500000
       from: web3.eth.accounts[0]
@@ -43,7 +39,7 @@ Template['components_multiplyContract'].events
       # multiply by 10 hack for testing
       if !err
         transactionObject.gas = estimateGas * 10
-      MultiplyContract.new transactionObject, (err, contract) ->
+      Organization.new transactionObject, (err, contract) ->
         if err
           return TemplateVar.set(template, 'state',
             isError: true
@@ -52,7 +48,6 @@ Template['components_multiplyContract'].events
           TemplateVar.set template, 'state',
             isMined: true
             address: contract.address
-            source: source
           contractInstance = contract
         return
       return

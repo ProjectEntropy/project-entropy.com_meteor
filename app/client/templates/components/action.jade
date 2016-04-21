@@ -12,13 +12,9 @@ template(name = "action")
       .info-container
         a.thread-title
           h4 
-            a(href="actions/#{_id}") #{ name } 
+            a(href="actions/#{ filter }/#{ _id }") #{ name } 
             each tags
               span.badge #{ this }
           
         h6.thread-info
           p #{ description }
-
-        //- ul.buttons
-        //-   li
-        //-     a comments

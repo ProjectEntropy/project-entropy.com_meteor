@@ -63,6 +63,4 @@ Template['dashboard'].events 'submit .new-action': (event) ->
       $(target).find('.error').html('')
     else
       $(target).find('.error').html(error)
-
-
   return

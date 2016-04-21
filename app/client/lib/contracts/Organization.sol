@@ -10,4 +10,8 @@ contract Organization {
 
   address owner;
   Proposal[] proposals;
+
+  function multiply(uint a) returns(uint d) {
+    return a * 10;
+  }
 }
