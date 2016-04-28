@@ -24,6 +24,7 @@ Template['components_multiplyContract'].onRendered ->
 
 Template['components_multiplyContract'].events
   'click .btn-default': (event, template) ->
+
     # Create Contract
     TemplateVar.set 'state', isMining: true
     # Set coinbase as the default account
