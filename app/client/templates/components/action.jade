@@ -3,38 +3,18 @@ template(name = "action")
     td
       .vote
         i.fa.fa-chevron-up
-        .score #{ votes }
+        //- i.fa.fa-thumbs-up
+        .score   
+          | {{ votes_for(_id) }}
+        //- i.fa.fa-thumbs-down
         i.fa.fa-chevron-down
     td
       .info-container
         a.thread-title
           h4 
-            | #{ name } 
+            a(href="actions/#{ filter }/#{ _id }") #{ name } 
             each tags
               span.badge #{ this }
           
         h6.thread-info
           p #{ description }
-
-        ul.buttons
-          li
-            a comments
-
-
-template(name = "action_small")
-  tr
-    td
-    td
-      .info-container
-        a.thread-title
-          h4 
-            | #{ name } 
-            each tags
-              span.badge #{ this }
-          
-        h6.thread-info
-          p #{ description }
-
-        ul.buttons
-          li
-            a comments

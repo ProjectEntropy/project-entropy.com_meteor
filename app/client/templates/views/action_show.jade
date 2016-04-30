@@ -1,0 +1,15 @@
+template(name='action_show')
+  .panel.panel-default
+    .panel-heading
+      a.thread-title
+        h4 #{ name } 
+          each tags
+            span.badge #{ this }
+    .panel-body
+        
+      h6.thread-info
+        p #{ description }
+
+      ul.buttons
+        li
+          a comments

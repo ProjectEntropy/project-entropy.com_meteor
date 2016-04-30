@@ -1,0 +1,12 @@
+template(name='actions')
+  .row-fluid
+    .col-sm-8
+      .panel.panel-default
+        .panel-heading
+          h3 
+            | Actions
+            | #{filter}
+        .panel-body
+          table
+            each actions
+              +action

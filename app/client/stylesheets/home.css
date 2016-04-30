@@ -1,0 +1,27 @@
+.entropy_logo
+{
+  margin-top: 9px;
+}
+
+.navbar-top{}
+
+.panel-body
+{
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+body{
+  background-image: url("//bitboatassets.s3.amazonaws.com/bitboat/assets/cat_from_above_3-f9c44042d952f291d30e909927fc97654c13546f733b2720085a1e7500c5177f.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.panel-heading h3 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: normal;
+  width: 75%;
+}
