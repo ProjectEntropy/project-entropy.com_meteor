@@ -9,7 +9,10 @@ contractInstance = undefined
 
 
 isZero = (key) ->
-  return true if key == '0x0000000000000000000000000000000000000000'
+  return true if key == '0x0000000000000000000000000000000000000000000000000000000000000000'
+  if key == '0x'
+    console.log "weird key: " + key
+    return true
   return false
 
 # Helper method to get all elements in a linked list
@@ -18,14 +21,22 @@ getAllElements = (listContract) ->
   tail = listContract.tail()
 
   if isZero(tail)
+    console.log "empty list"
     return list
   currentKey = tail
 
   while !isZero(currentKey)
-    elem = listContract.actions(currentKey)
-    list.push elem
-    currentKey = elem[1]
+    console.log "currentKey: "
+    console.log currentKey
 
+    elem = listContract.actions(currentKey)
+    # convert to JS object
+    elem = web3.returnObject("actions", elem, listContract.abi)
+
+    list.push elem
+    currentKey = elem.next
+
+  console.log "list"
   console.log list
   return list
 
@@ -89,9 +100,7 @@ Template['dashboard'].helpers
 
 # When the template is created
 Template['dashboard'].onRendered ->
-  if contractInstance
-    return
-  else
+  if !contractInstance
     mine_contract(Organization)
 
   coinbase = web3.eth.coinbase
@@ -101,20 +110,22 @@ Template['dashboard'].onRendered ->
     Session.set 'soon', getAllElements(contractInstance)
 
     # Add some actions
-    params1 = web3.sha3({
+    params1 = "0x" + web3.sha3( JSON.stringify({
       data: "test"
-    })
+    }))
 
-    params2 = web3.sha3({
+    params2 = {
       data: "test2"
-    })
-
-
-    contractInstance.addAction( contractInstance.address, 0x10, params1, {from: web3.eth.defaultAccount, gas:1000000}, (err, result) ->
+    }
+    # function addAction(bytes32 key, string _name, uint _kind, bytes32 _data, uint _amount) returns (bool){
+    contractInstance.addAction.sendTransaction( contractInstance.address, 0x10, ( "0x" + web3.sha3("test") ), 1, params1, 10, {from: web3.eth.accounts[0], gas:1000000}, (err, result) ->
+      console.log "Added a new test action at 0x10"
       console.log "err"
       console.log err
       console.log "result"
       console.log result )
+
+    # debugger
 
   ), 5 * 1000)
   return
