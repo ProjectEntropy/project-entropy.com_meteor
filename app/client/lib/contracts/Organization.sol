@@ -26,7 +26,6 @@ contract Organization {
 
   address owner;
 
-  bytes32 public tail;
   bytes32 public head;
 
   mapping(bytes32 => Action) public actions;
@@ -34,7 +33,6 @@ contract Organization {
   // Constructor
   function Organization() {
     head = "head";
-    tail = "tail";
   }
 
 

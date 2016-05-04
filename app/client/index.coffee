@@ -11,11 +11,8 @@ if Meteor.isClient
   Session.setDefault 'balance', '0'
 
 Meteor.startup ->
-  # set ethereum RPC providor
-  if !web3.currentProvider
-    web3.setProvider new (web3.providers.HttpProvider)('http://localhost:8545')
-  # Setup EthAccounts
-  EthAccounts.init()
+  # # Setup EthAccounts
+  # EthAccounts.init()
 
   # SET default language
   if Cookie.get('TAPi18next')
@@ -40,7 +37,7 @@ Meteor.startup ->
       moment.locale TAPi18n.getLanguage().substr(0, 2)
       numeral.language TAPi18n.getLanguage().substr(0, 2)
     return
-    
+
   # Set Meta Title
   Meta.setTitle TAPi18n.__('dapp.app.title')
   return
