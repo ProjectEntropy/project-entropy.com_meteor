@@ -17,7 +17,6 @@ template(name = "action_eth")
               span.badge #{ this }
           
         h6.thread-info
-          p #{ data }
           p #{ description }
 
 template(name = "action")
@@ -27,14 +26,14 @@ template(name = "action")
         i.fa.fa-chevron-up
         //- i.fa.fa-thumbs-up
         .score   
-          | {{ votes_for(_id) }}
+          | {{ votes_count }}
         //- i.fa.fa-thumbs-down
         i.fa.fa-chevron-down
     td
       .info-container
         a.thread-title
           h4 
-            a(href="actions/#{ filter }/#{ _id }") #{ name } 
+            a(href="actions/#{ filter }/#{ name }") #{ name } 
             each tags
               span.badge #{ this }
           

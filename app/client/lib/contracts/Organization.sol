@@ -7,6 +7,7 @@ contract Organization {
 
     string name;
     string description;
+    
     address from;
     uint kind;
 
@@ -26,6 +27,7 @@ contract Organization {
 
   address owner;
 
+
   bytes32 public head;
 
   mapping(bytes32 => Action) public actions;
@@ -36,15 +38,7 @@ contract Organization {
   }
 
 
-  function getData(bytes32 key) returns (bytes32){
-    return actions[key].data;
-  }
-  function getVote_count(bytes32 key) returns (uint){
-    return actions[key].vote_count;
-  }
-
-
-  function addAction(bytes32 key, string _name, uint _kind, bytes32 _data, uint _amount) returns (bool){
+  function addAction(bytes32 key, string _name, string _description, uint _kind, bytes32 _data, uint _amount) returns (bool){
     Action a = actions[key];
 
     // Safety check incase it's not empty
@@ -53,6 +47,7 @@ contract Organization {
     }
 
     a.name = _name;
+    a.description = _description;
     a.data = _data;
     a.kind = _kind;
 

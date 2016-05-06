@@ -126,7 +126,7 @@ underscorestring:underscore.string@3.3.4
 url@1.0.9
 velocity:chokidar@1.2.0_1
 velocity:core@0.10.10
-velocity:html-reporter@0.10.0
+velocity:html-reporter@0.10.1
 velocity:meteor-internals@1.1.0_7
 velocity:reports@1.0.0
 velocity:shim@0.1.0
