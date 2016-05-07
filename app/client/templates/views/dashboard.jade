@@ -14,7 +14,7 @@ template(name='list')
     .panel-body
       table
         each collection
-          +action
+          +action_eth
         if create
           tr
             td(colspan="2")
@@ -31,33 +31,31 @@ template(name='list')
                 
 template(name='dashboard')
   .row-fluid
+    //- .col-sm-4
+    //-   .panel.panel-default
+    //-     .panel-body
+    //-       i.fa.fa-home
+    //-       p
+    //-         +components_balance
+    //-         
+    //-       p
+    //-         | Total needed funds
+    //-         strong #{ needed_ether } 
+    //-         | ether
+    //-   .panel.panel-default
+    //-     .panel-body
+    //-       p
+    //-         i.fa.fa-user
+    //-         | You are not 
+    //-         a logged in
+    //-         
+    //-       p
+    //-         .btn
+    //-           | Get Tokens
+    //-           
+    //-   +list(name= 'Done' icon= 'fa-check' collection=done    )
+    //- .col-sm-4
+    //-   +list(name= 'Now'  icon= 'fa-gear' collection=actions )
     .col-sm-4
-      .panel.panel-default
-        .panel-body
-          i.fa.fa-home
-          p
-            +components_balance
-            
-          p
-            | Total needed funds
-            strong #{ needed_ether } 
-            | ether
-      .panel.panel-default
-        .panel-body
-          p
-            i.fa.fa-user
-            | You are not 
-            a logged in
-            
-          p
-            .btn
-              | Get Tokens
-              
-      +list(name= 'Done' icon= 'fa-check' collection=done    )
-    .col-sm-4
-      +list(name= 'Now'  icon= 'fa-gear' collection=actions )
-    .col-sm-4
-      pre
-        | {{ soon }}
-      //- +list(name= 'Soon' icon= 'fa-clock-o' collection=soon create=true)
+      +list(name= 'face' icon= 'fa-clock-o' collection=soon create=true)
   

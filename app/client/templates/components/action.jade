@@ -1,3 +1,25 @@
+template(name = "action_eth")
+  tr
+    td
+      .vote
+        i.fa.fa-chevron-up
+        //- i.fa.fa-thumbs-up
+        .score   
+          | {{ vote_count }}
+        //- i.fa.fa-thumbs-down
+        i.fa.fa-chevron-down
+    td
+      .info-container
+        a.thread-title
+          h4 
+            a(href="actions/#{ filter }/#{ _id }") #{ name } 
+            each tags
+              span.badge #{ this }
+          
+        h6.thread-info
+          p #{ data }
+          p #{ description }
+
 template(name = "action")
   tr
     td
