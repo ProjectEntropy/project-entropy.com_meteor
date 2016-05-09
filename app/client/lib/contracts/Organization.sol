@@ -7,7 +7,7 @@ contract Organization {
 
     string name;
     string description;
-    
+
     address from;
     uint kind;
 
@@ -27,7 +27,6 @@ contract Organization {
 
   address owner;
 
-
   bytes32 public head;
 
   mapping(bytes32 => Action) public actions;
@@ -37,6 +36,11 @@ contract Organization {
     head = "head";
   }
 
+  function vote(bytes32 key)
+  {
+    Action a = actions[key];
+    a.vote_count += 1;
+  }
 
   function addAction(bytes32 key, string _name, string _description, uint _kind, bytes32 _data, uint _amount) returns (bool){
     Action a = actions[key];
