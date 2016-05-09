@@ -6,6 +6,9 @@ if !web3.currentProvider
   web3.setProvider new (web3.providers.HttpProvider)('http://localhost:8545')
 
 
+window.get_actions = ->
+  Session.set 'soon', getAllElements(contractInstance)
+
 window.scan_contract = (blockHash) ->
   # Make sure contracts are mined
   if contractInstance == undefined
@@ -13,24 +16,20 @@ window.scan_contract = (blockHash) ->
   else
     # Contract exists
     last_known_block = Session.get('latestBlock') == undefined ? "" : Session.get('latestBlock').hash
-    this_block = blockHash
-    if last_known_block != this_block
-      # Get all actions
-      Session.set 'soon', getAllElements(contractInstance)
+
+    if (last_known_block != blockHash) || Session.get 'soon' == undefined
+      get_actions()
 
       # Save block
       web3.eth.getBlock blockHash, (e, block) ->
         Session.set 'latestBlock', block
         return
 
-# get the latest block
-web3.eth.filter('latest').watch (e, blockHash) ->
-  if !e
-    console.log "| new block seen |"
-    scan_contract(blockHash)
-
-  return
-
+window.wait_for_block_mined = (err, contract) ->
+  if err
+    console.log err
+  if contract.address
+    console.log 'mined contract at ' + contract.address
 window.after_tx_callback = (err, contract) ->
   if err
     console.log err
@@ -41,16 +40,12 @@ window.after_tx_callback = (err, contract) ->
     @waiting_for_mining = false
 
     # Add some test activities
-    # addAction(bytes32 key, string _name, string _description, uint _kind, bytes32 _data, uint _amount) returns (bool){
-    contractInstance.addAction.sendTransaction( 1, "Sail to Fuji", "we should sail to fuji", 1, 1, "0x" + web3.sha3("data?"), 10, {from: web3.eth.accounts[0], gas:1000000}, (err, result) ->
-      console.log "Added a new action"
-      console.log "result"
-      console.log result )
+    # function addAction(bytes32 key, string _name, string _description, uint _kind, bytes32 _data, uint _amount)
+    for num in [1..50]
+      contractInstance.addAction.sendTransaction( num, "Sail to Fuji", "we should sail to fuji", 1, "0x" + web3.sha3("data?"), 10, {from: web3.eth.accounts[0], gas:1000000}, (err, result) ->
+        console.log "Added a new action"
+        )
 
-    contractInstance.addAction.sendTransaction( 2, "Buy boat", "Buy a catamaran", 1, 1, "0x" + web3.sha3("data?"), 10, {from: web3.eth.accounts[0], gas:1000000}, (err, result) ->
-      console.log "Added a new action"
-      console.log "result"
-      console.log result )
   else
     console.log "waiting for contract to be mined..."
   return
@@ -68,16 +63,16 @@ window.find_or_mine_contract = (Contract, address) ->
   console.log existing_contract_instance
 
 
-  if existing_contract_instance.address
-    console.log "Found existing contract at: " + existing_contract_instance.address
-    console.log existing_contract_instance
-
-    @contractInstance = existing_contract_instance
-    @waiting_for_mining = false
-    return
+  # if existing_contract_instance.address
+  #   console.log "Found existing contract at: " + existing_contract_instance.address
+  #   console.log existing_contract_instance
+  #
+  #   @contractInstance = existing_contract_instance
+  #   @waiting_for_mining = false
+  #   get_actions()
+  #   return
 
   # check it's code matches the latest contract code
-  # debugger
 
   # Create Contract
   # Set coinbase as the default account
@@ -99,5 +94,12 @@ window.find_or_mine_contract = (Contract, address) ->
   return
 
 
-# Do one scan straight away
-scan_contract()
+
+
+# get the latest block
+web3.eth.filter('latest').watch (e, blockHash) ->
+  if !e
+    console.log "| new block seen |"
+    scan_contract(blockHash)
+
+  return

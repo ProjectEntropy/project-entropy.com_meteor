@@ -3,7 +3,6 @@
 contract Organization {
   struct Action {
     bytes32 previous;
-    bytes32 next;
 
     string name;
     string description;
@@ -61,7 +60,6 @@ contract Organization {
     a.created = now;
 
     // Link
-    actions[head].next = key;
     a.previous = head;
 
     // Set this element as the new head.
