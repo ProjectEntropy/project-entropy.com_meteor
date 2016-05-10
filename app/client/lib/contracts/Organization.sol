@@ -7,6 +7,7 @@ contract Organization {
 
     string name;
     string description;
+
     address from;
     uint kind;
 
@@ -35,16 +36,13 @@ contract Organization {
     head = "head";
   }
 
-
-  function getData(bytes32 key) returns (bytes32){
-    return actions[key].data;
-  }
-  function getVote_count(bytes32 key) returns (uint){
-    return actions[key].vote_count;
+  function vote(bytes32 key)
+  {
+    Action a = actions[key];
+    a.vote_count += 1;
   }
 
-
-  function addAction(bytes32 key, string _name, uint _kind, bytes32 _data, uint _amount) returns (bool){
+  function addAction(bytes32 key, string _name, string _description, uint _kind, bytes32 _data, uint _amount) returns (bool){
     Action a = actions[key];
 
     // Safety check incase it's not empty
@@ -53,6 +51,7 @@ contract Organization {
     }
 
     a.name = _name;
+    a.description = _description;
     a.data = _data;
     a.kind = _kind;
 

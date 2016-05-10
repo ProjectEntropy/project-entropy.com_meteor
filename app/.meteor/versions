@@ -120,13 +120,14 @@ tap:i18n@1.8.0
 templating@1.1.9
 templating-tools@1.0.4
 tracker@1.0.13
+u2622:persistent-session@0.4.4
 ui@1.0.11
 underscore@1.0.8
 underscorestring:underscore.string@3.3.4
 url@1.0.9
 velocity:chokidar@1.2.0_1
 velocity:core@0.10.10
-velocity:html-reporter@0.10.0
+velocity:html-reporter@0.10.1
 velocity:meteor-internals@1.1.0_7
 velocity:reports@1.0.0
 velocity:shim@0.1.0

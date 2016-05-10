@@ -24,26 +24,6 @@ Template['dashboard'].helpers
 
 # When the template is created
 Template['dashboard'].onRendered ->
-
-  # @updateSoonActions = Meteor.setInterval((->
-  #   # debugger
-  #   # console.log getAllElements(contractInstance)
-  #   # Session.set 'soon', getAllElements(contractInstance)
-  #
-  #   # Add some actions
-  #   params1 = "0x" + web3.sha3( JSON.stringify({
-  #     data: "test"
-  #   }))
-  #
-  #   params2 = {
-  #     data: "test2"
-  #   }
-  #   # function addAction(bytes32 key, string _name, uint _kind, bytes32 _data, uint _amount) returns (bool){
-
-  #
-  #   # debugger
-  #
-  # ), 5 * 1000)
   return
 
 Template['dashboard'].onDestroyed ->
@@ -66,7 +46,8 @@ Template['dashboard'].events 'submit .new-action': (event) ->
 
   params1 = "0x" + web3.sha3(description)
 
-  contractInstance.addAction.sendTransaction( contractInstance.address, name, ( "0x" + web3.sha3(description) ), 1, params1, 10, {from: web3.eth.accounts[0], gas:1000000}, (err, result) ->
+  # addAction(bytes32 key, string _name, uint _kind, bytes32 _data, uint _amount) returns (bool){
+  contractInstance.addAction.sendTransaction( name, name, description, 1, 1, params1, 10, {from: web3.eth.accounts[0], gas:1000000}, (err, result) ->
     console.log "Added a new action"
     console.log "err"
     if err
@@ -77,7 +58,7 @@ Template['dashboard'].events 'submit .new-action': (event) ->
       description_el.value = ''
       tags_el.value = ''
       $(target).find('.error').html('')
-      
+
     console.log "result"
     console.log result )
 
