@@ -18,7 +18,7 @@ template(name = "action_eth")
           
         h6.thread-info
           p #{ description }
-          p #{ amount }
+          p #{ web3.fromWei( amount ) }
 
 template(name = "action")
   tr

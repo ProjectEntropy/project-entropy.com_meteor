@@ -31,31 +31,40 @@ template(name='list')
                 
 template(name='dashboard')
   .row-fluid
-    //- .col-sm-4
-    //-   .panel.panel-default
-    //-     .panel-body
-    //-       i.fa.fa-home
-    //-       p
-    //-         +components_balance
-    //-         
-    //-       p
-    //-         | Total needed funds
-    //-         strong #{ needed_ether } 
-    //-         | ether
-    //-   .panel.panel-default
-    //-     .panel-body
-    //-       p
-    //-         i.fa.fa-user
-    //-         | You are not 
-    //-         a logged in
-    //-         
-    //-       p
-    //-         .btn
-    //-           | Get Tokens
-    //-           
+    .col-sm-4
+      .panel.panel-default
+        .panel-body
+          i.fa.fa-home
+          p
+            +components_balance
+            
+          p
+            | Total needed funds
+            strong 
+            | #{ needed_ether } 
+            | ether
+            
+      .panel.panel-default
+        .panel-body
+          p
+            if rpc_host
+              i.fa.fa-plug
+              |  Connected to
+              |  #{ rpc_host }
+            else
+              | Not connected
+          p
+            i.fa.fa-user
+            | You are not 
+            a logged in
+            
+          p
+            .btn
+              | Get Tokens
+              
     //-   +list(name= 'Done' icon= 'fa-check' collection=done    )
     //- .col-sm-4
     //-   +list(name= 'Now'  icon= 'fa-gear' collection=actions )
     .col-sm-4
-      +list(name= 'face' icon= 'fa-clock-o' collection=soon create=true)
+      +list(name= 'Upcoming' icon= 'fa-clock-o' collection=soon create=true)
   

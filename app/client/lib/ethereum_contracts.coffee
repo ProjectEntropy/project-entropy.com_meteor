@@ -9,6 +9,11 @@ if !web3.currentProvider
 window.get_actions = ->
   Session.set 'soon', getAllElements(contractInstance)
 
+window.get_company_data = ->
+  Session.set 'available_ether', web3.returnObject("available_ether", contractInstance.available_ether(), contractInstance.abi)
+  Session.set 'needed_ether', web3.returnObject("needed_ether", contractInstance.needed_ether(), contractInstance.abi)
+
+# Check contracts are mined and load data from them
 window.scan_contract = (blockHash) ->
   # Make sure contracts are mined
   if contractInstance == undefined
@@ -20,6 +25,8 @@ window.scan_contract = (blockHash) ->
     if (last_known_block != blockHash) || Session.get 'soon' == undefined
       get_actions()
 
+      get_company_data()
+
       # Save block
       web3.eth.getBlock blockHash, (e, block) ->
         Session.set 'latestBlock', block
@@ -30,6 +37,7 @@ window.wait_for_block_mined = (err, contract) ->
     console.log err
   if contract.address
     console.log 'mined contract at ' + contract.address
+
 window.after_tx_callback = (err, contract) ->
   if err
     console.log err
@@ -42,7 +50,7 @@ window.after_tx_callback = (err, contract) ->
     # Add some test activities
     # function addAction(bytes32 key, string _name, string _description, uint _kind, bytes32 _data, uint _amount)
     for num in [1..50]
-      contractInstance.addAction.sendTransaction( num, "Sail to Fuji", "we should sail to fuji", 1, "0x" + web3.sha3("data?"), 10, {from: web3.eth.accounts[0], gas:1000000}, (err, result) ->
+      contractInstance.addAction.sendTransaction( num, "Sail to Fuji", "we should sail to fuji", 1, "data?", web3.toWei(3.1231), {from: web3.eth.accounts[0], gas:1000000}, (err, result) ->
         console.log "Added a new action"
         )
 
@@ -96,7 +104,7 @@ window.find_or_mine_contract = (Contract, address) ->
 
 
 
-# get the latest block
+# watch for the latest mined blocks
 web3.eth.filter('latest').watch (e, blockHash) ->
   if !e
     console.log "| new block seen |"

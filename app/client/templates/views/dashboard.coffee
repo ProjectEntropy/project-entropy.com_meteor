@@ -9,18 +9,16 @@ Template Controllers
 Template['dashboard'].helpers
   actions: ->
     Actions.find({})
-
   soon: ->
     Session.get('soon')
-
   done: ->
     Session.get('done')
-
   available_ether: ->
-    web3
-    25.237653
+    web3.fromWei(Session.get('available_ether')).toString()
   needed_ether: ->
-    16825.0
+    web3.fromWei(Session.get('needed_ether')).toString()
+  rpc_host: ->
+    web3.currentProvider.host
 
 # When the template is created
 Template['dashboard'].onRendered ->
