@@ -1,34 +1,23 @@
 template(name='home')
+  
+  head
+    meta(content='width=device-width, initial-scale=1.0', name='viewport')
+    title Entropy
+    meta(content='Entropy', name='description')
+    link(rel='stylesheet', media='all', href='//bitboatassets.s3.amazonaws.com/bitboat/assets/application-aa2995f80bbb1320cda6ce4864b5df7787f816304a271de60bc71c8db7c7836f.css', data-turbolinks-track='true')
+    link(rel='stylesheet', media='screen', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css')
+    script(src='//bitboatassets.s3.amazonaws.com/bitboat/assets/application-af4e9d0591dc61d0f79f84db29cbf148c70b2e4d8eba185e0cba465cc8e34413.js', data-turbolinks-track='true')
+    meta(name='csrf-param', content='authenticity_token')
+    meta(name='csrf-token', content='jgqMEVWk6HMCoWtZCgffR0kK0yz3IODp7XtfDQZqA2pxJZyc6agwIg1/s3q2xsDA6XWb53JMd/xlVxjA7rPc1Q==')
+  
   body#page-top
-    nav#mainNav.navbar.navbar-default.navbar-fixed-top
-      .container-fluid
-        // Brand and toggle get grouped for better mobile display
-        .navbar-header
-          button.navbar-toggle.collapsed(data-target='#bs-example-navbar-collapse-1', data-toggle='collapse', type='button')
-            span.sr-only Toggle navigation
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
-          a.navbar-brand.page-scroll(href='http://bitcoin01.herokuapp.com/')
-            img(style='max-width:150px; margin-top: -9px;', src='http://bitboatassets.s3.amazonaws.com/bitboat/assets/entropy_logo_text_white-e0176ffd0aa399ff0ec1fe28073aafd7e809a5fe6c4135450014d6e19a244d1f.png', alt='Entropy logo text white e0176ffd0aa399ff0ec1fe28073aafd7e809a5fe6c4135450014d6e19a244d1f')
-        // Collect the nav links, forms, and other content for toggling
-        #bs-example-navbar-collapse-1.collapse.navbar-collapse.main-navbar
-          ul.nav.navbar-nav.navbar-right
-            li
-              a(href='http://bitcoin01.herokuapp.com/pages/boat')
-                i.fa.fa-anchor
-                | The Boat
-          
-            li
-              a(href='http://bitcoin01.herokuapp.com/pages/citizen')
-                i.fa.fa-flag-o
-                | Citizenship
+  
     header.homepage
       .header-content
         .header-content-inner
           h1.main-lead-text The Experimental Global Floating Blockchain Hackspace
           hr
-          a.btn.btn-primary.btn-xl.page-scroll(href='http://bitcoin01.herokuapp.com/#about') Our Mission
+          a.btn.btn-primary.btn-xl.page-scroll(href='#about') Our Mission
     section#about.bg-primary
       .container
         .row
@@ -55,8 +44,8 @@ template(name='home')
             p.lead
               | Entropy steadily heads West on a schedule carefully planned to avoid storm seasons while harnessing the natural trade winds.
             p.lead The community at large decides the next port of call
-            a(href='http://bitcoin01.herokuapp.com/pages/map')
-              img.img-responsive.wow.fadeIn(src='./Entropy_static_files/worldmap_1-5d3a036aeb934658fcf2035f4065fd1acc0654064bda8224ad68a52847a3e6fc.png', alt='Worldmap 1 5d3a036aeb934658fcf2035f4065fd1acc0654064bda8224ad68a52847a3e6fc', style='visibility: visible; animation-name: fadeIn;')
+            a(href='/pages/map')
+              img.img-responsive.wow.fadeIn(src='//bitboatassets.s3.amazonaws.com/bitboat/assets/worldmap_1-5d3a036aeb934658fcf2035f4065fd1acc0654064bda8224ad68a52847a3e6fc.png', alt='Worldmap 1 5d3a036aeb934658fcf2035f4065fd1acc0654064bda8224ad68a52847a3e6fc')
     section#services
       .container
         .row
@@ -67,25 +56,25 @@ template(name='home')
         .row
           .col-lg-3.col-md-6.text-center
             .service-box
-              i.fa.fa-4x.fa-anchor.wow.bounceIn.text-primary(style='visibility: visible; animation-name: bounceIn;')
+              i.fa.fa-4x.fa-anchor.wow.bounceIn.text-primary
               h3 Hackspace, Event Venue & More
               p.text-muted.lead
                 | Dramatically bringing the intangable right to the heart of major cities around the world, with an onboard bitcoin cafe, hackerspace and global fairtrade tea delivery.
           .col-lg-3.col-md-6.text-center
             .service-box
-              i.fa.fa-4x.fa-flag.wow.bounceIn.text-primary(data-wow-delay='.1s', style='visibility: visible; animation-delay: 0.1s; animation-name: bounceIn;')
+              i.fa.fa-4x.fa-flag.wow.bounceIn.text-primary(data-wow-delay='.1s')
               h3 Citizenship
               p.text-muted.lead
                 | Anyone can become a citizen, entitled to join us sailing, vote on the next destination and help out.
           .col-lg-3.col-md-6.text-center
             .service-box
-              i.fa.fa-4x.fa-arrows-alt.wow.bounceIn.text-primary(data-wow-delay='.2s', style='visibility: visible; animation-delay: 0.2s; animation-name: bounceIn;')
+              i.fa.fa-4x.fa-arrows-alt.wow.bounceIn.text-primary(data-wow-delay='.2s')
               h3 Decentralized Infrastructure
               p.text-muted.lead
                 | Pushing the boundaries of eco-friendly mobile technology, off grid power and decentralisation, we are building a community around blockchain based trustless descision making
           .col-lg-3.col-md-6.text-center
             .service-box
-              i.fa.fa-4x.fa-chevron-circle-right.wow.bounceIn.text-primary(data-wow-delay='.3s', style='visibility: visible; animation-delay: 0.3s; animation-name: bounceIn;')
+              i.fa.fa-4x.fa-chevron-circle-right.wow.bounceIn.text-primary(data-wow-delay='.3s')
               h3 Just the Beginning
               p.text-muted.lead
                 | Entropy is part of an emerging fleet, heading under full sail into the unknown of the new word
@@ -93,8 +82,8 @@ template(name='home')
       .container-fluid
         .row.no-gutter
           .col-lg-4.col-sm-6
-            a.portfolio-box(href='http://bitcoin01.herokuapp.com/#')
-              img.img-responsive(src='./Entropy_static_files/sails_up-73fa8abfabdaf1a80ec0863b975861afcaa02c815112fa78368c58ebe01a59d0.jpg', alt='Sails up 73fa8abfabdaf1a80ec0863b975861afcaa02c815112fa78368c58ebe01a59d0')
+            a.portfolio-box(href='#')
+              img.img-responsive(src='//bitboatassets.s3.amazonaws.com/bitboat/assets/sails_up-73fa8abfabdaf1a80ec0863b975861afcaa02c815112fa78368c58ebe01a59d0.jpg', alt='Sails up 73fa8abfabdaf1a80ec0863b975861afcaa02c815112fa78368c58ebe01a59d0')
               .portfolio-box-caption
                 .portfolio-box-caption-content
                   .project-category.text-faded
@@ -102,8 +91,8 @@ template(name='home')
                   .project-name
                     | Quiet, Relaxed, EcoFriendly, our boat is large enough to host events and comfortable enough to travel on aroud the world.
           .col-lg-4.col-sm-6
-            a.portfolio-box(href='http://bitcoin01.herokuapp.com/#')
-              img.img-responsive(src='./Entropy_static_files/spinnaker-5ae9771cdf27f9dac3d002a86eb5441beeb6cd695be1256dac63df920b09fd90.jpg', alt='Spinnaker 5ae9771cdf27f9dac3d002a86eb5441beeb6cd695be1256dac63df920b09fd90')
+            a.portfolio-box(href='#')
+              img.img-responsive(src='//bitboatassets.s3.amazonaws.com/bitboat/assets/spinnaker-5ae9771cdf27f9dac3d002a86eb5441beeb6cd695be1256dac63df920b09fd90.jpg', alt='Spinnaker 5ae9771cdf27f9dac3d002a86eb5441beeb6cd695be1256dac63df920b09fd90')
               .portfolio-box-caption
                 .portfolio-box-caption-content
                   .project-category.text-faded
@@ -111,8 +100,8 @@ template(name='home')
                   .project-name
                     | Full onboard workshop, 3d Printing, IoT components, everything you need to learn and experiment with bitcoin together with plenty of fresh coffee
           .col-lg-4.col-sm-6
-            a.portfolio-box(href='http://bitcoin01.herokuapp.com/#')
-              img.img-responsive(src='./Entropy_static_files/sails-3-154c046b9ebdb3339df7bd2569a2e6ffd941ef9de8467104966ae84cc20ae4b5.jpg', alt='Sails 3 154c046b9ebdb3339df7bd2569a2e6ffd941ef9de8467104966ae84cc20ae4b5')
+            a.portfolio-box(href='#')
+              img.img-responsive(src='//bitboatassets.s3.amazonaws.com/bitboat/assets/sails-3-154c046b9ebdb3339df7bd2569a2e6ffd941ef9de8467104966ae84cc20ae4b5.jpg', alt='Sails 3 154c046b9ebdb3339df7bd2569a2e6ffd941ef9de8467104966ae84cc20ae4b5')
               .portfolio-box-caption
                 .portfolio-box-caption-content
                   .project-category.text-faded
@@ -128,8 +117,8 @@ template(name='home')
             p
               | We're an enthusiastic and friendly group of technologists, creatives, environmentalists and dreamers
         .row
-          .col-lg-3.text-center.wow.fadeIn(style='visibility: visible;')
-            img.img-responsive.profile_pic(src='./Entropy_static_files/helena_1-a5d319e1621d57c5b58b91cb5605e8a0ad31351ff6ec7cb01e8a3ba4fdba3e5b.jpg', alt='Helena 1 a5d319e1621d57c5b58b91cb5605e8a0ad31351ff6ec7cb01e8a3ba4fdba3e5b')
+          .col-lg-3.text-center.wow.fadeIn
+            img.img-responsive.profile_pic(src='//bitboatassets.s3.amazonaws.com/bitboat/assets/helena_1-a5d319e1621d57c5b58b91cb5605e8a0ad31351ff6ec7cb01e8a3ba4fdba3e5b.jpg', alt='Helena 1 a5d319e1621d57c5b58b91cb5605e8a0ad31351ff6ec7cb01e8a3ba4fdba3e5b')
             p Helena Teichrib
             p.text-muted Creative Dreamer & Designer
             p
@@ -139,21 +128,21 @@ template(name='home')
                 i.fa.fa-linkedin
               a(href='https://twitter.com/HelenaTeichrib')
                 i.fa.fa-twitter
-          .col-lg-3.text-center.wow.fadeIn(style='visibility: visible;')
-            img.img-responsive.profile_pic(src='./Entropy_static_files/anne_2-db246eba4e2d47fff912daad916a9a7cbf1ce957474d9c8f5e761995d519f2d6.png', alt='Anne 2 db246eba4e2d47fff912daad916a9a7cbf1ce957474d9c8f5e761995d519f2d6')
+          .col-lg-3.text-center.wow.fadeIn
+            img.img-responsive.profile_pic(src='//bitboatassets.s3.amazonaws.com/bitboat/assets/anne_2-db246eba4e2d47fff912daad916a9a7cbf1ce957474d9c8f5e761995d519f2d6.png', alt='Anne 2 db246eba4e2d47fff912daad916a9a7cbf1ce957474d9c8f5e761995d519f2d6')
             p Anne Schön
             p.text-muted Social Designer & Startup Mentor
             p
               a(href='mailto:schoen.anne@online.de')
                 i.fa.fa-envelope-o
-          .col-lg-3.text-center.wow.fadeIn(style='visibility: visible;')
-            img.img-responsive.profile_pic(src='./Entropy_static_files/joran_rain-9fb3a84d192bf0f547f5981602be881e3eb07d381286fcbbb2542d81b251a899.png', alt='Joran rain 9fb3a84d192bf0f547f5981602be881e3eb07d381286fcbbb2542d81b251a899')
+          .col-lg-3.text-center.wow.fadeIn
+            img.img-responsive.profile_pic(src='//bitboatassets.s3.amazonaws.com/bitboat/assets/joran_rain-9fb3a84d192bf0f547f5981602be881e3eb07d381286fcbbb2542d81b251a899.png', alt='Joran rain 9fb3a84d192bf0f547f5981602be881e3eb07d381286fcbbb2542d81b251a899')
             p Joran Kikke
             p.text-muted Skipper, Maker & Technologist
             p
               a(href='mailto:joran.k@project-entropy.com')
                 i.fa.fa-envelope-o
-              a(href='https://nz.linkedin.com/in/j%E1%BB%8F%CD%95%CC%89r%CD%95%CC%89%CC%BB%CD%95%CC%89%CC%89a%CC%BB%CD%95%CC%89%CC%89n-kikke-0b08065')
+              a(href='https://nz.linkedin.com/in/jỏ͕̉r͕̻͕̉̉̉ả̻͕̉n-kikke-0b08065')
                 i.fa.fa-linkedin
               a(href='https://twitter.com/donkeyscience')
                 i.fa.fa-twitter
@@ -169,17 +158,17 @@ template(name='home')
               | We're keen to hear from you about any questions, or if anyone wants to get involved!
         .row
           .col-lg-3.text-center
-            i.fa.fa-phone.fa-3x.wow.bounceIn(style='visibility: visible;')
+            i.fa.fa-phone.fa-3x.wow.bounceIn
             p +64 0204 404 004
           .col-lg-3.text-center
-            i.fa.fa-envelope-o.fa-3x.wow.bounceIn(data-wow-delay='.1s', style='visibility: visible; animation-delay: 0.1s;')
+            i.fa.fa-envelope-o.fa-3x.wow.bounceIn(data-wow-delay='.1s')
             p
               a(href='mailto:freedom@project-entropy.com') freedom@project-entropy.com
           .col-lg-3.text-center
-            i.fa.fa-github.fa-3x.wow.bounceIn(data-wow-delay='.1s', style='visibility: visible; animation-delay: 0.1s;')
+            i.fa.fa-github.fa-3x.wow.bounceIn(data-wow-delay='.1s')
             p
               a(href='https://github.com/ProjectEntropy/') github.com/ProjectEntropy
           .col-lg-3.text-center
-            i.fa.fa-twitter.fa-3x.wow.bounceIn(data-wow-delay='.1s', style='visibility: visible; animation-delay: 0.1s;')
+            i.fa.fa-twitter.fa-3x.wow.bounceIn(data-wow-delay='.1s')
             p
               a(href='https://twitter.com/EntropyBoat/') @EntropyBoat
