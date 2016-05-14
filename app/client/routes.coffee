@@ -32,8 +32,12 @@ The receive route, showing the wallet overview
 
 # Default route
 Router.route '/',
-  template: 'dashboard'
+  template: 'home'
   name: 'home'
+
+Router.route '/dashboard',
+  template: 'dashboard'
+  name: 'dashboard'
 # actions
 Router.route '/actions',
   template: 'actions'
