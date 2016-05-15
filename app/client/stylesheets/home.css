@@ -3,16 +3,20 @@
   margin-top: 9px;
 }
 
-.navbar-top{}
-
+.navbar-default {
+    border-color: rgba(255,255,255,0.3);
+    background-color: transparent;
+}
 .panel-body
 {
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-body{
-  
+.homepage
+{
+  margin-top: -81px;
+  z-index: -1;
 }
 
 .panel-heading h3 {
