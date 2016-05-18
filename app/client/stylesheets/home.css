@@ -3,8 +3,6 @@
   margin-top: 9px;
 }
 
-.navbar-top{}
-
 .panel-body
 {
   overflow: hidden;
@@ -12,7 +10,10 @@
 }
 
 body{
-  
+  background-image: url("//bitboatassets.s3.amazonaws.com/bitboat/assets/cat_from_above-62983c38ea2bf422f52a411ff46d3756689ae2f5348f5026819701746d170ffb.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .panel-heading h3 {
