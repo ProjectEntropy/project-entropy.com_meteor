@@ -36,8 +36,7 @@ template(name='dashboard')
         .panel-body
           i.fa.fa-home
           p
-            +components_balance
-            
+            +components_balance  
           p
             | Total needed funds
             strong 
@@ -47,12 +46,16 @@ template(name='dashboard')
       .panel.panel-default
         .panel-body
           p
-            if rpc_host
+            if web3connected
               i.fa.fa-plug
               |  Connected to
-              |  #{ rpc_host }
+              |  #{ provider }
             else
-              | Not connected
+              strong
+                i.fa.fa-warning
+                | Not connected
+              p
+                | Unable to connect to geth RPC
           p
             i.fa.fa-user
             | You are not 

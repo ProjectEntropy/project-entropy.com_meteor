@@ -49,7 +49,7 @@ window.after_tx_callback = (err, contract) ->
 
     # Add some test activities
     # function addAction(bytes32 key, string _name, string _description, uint _kind, bytes32 _data, uint _amount)
-    for num in [1..50]
+    for num in [1..10]
       contractInstance.addAction.sendTransaction( num, "Sail to Fuji", "we should sail to fuji", 1, "data?", web3.toWei(3.1231), {from: web3.eth.accounts[0], gas:1000000}, (err, result) ->
         console.log "Added a new action"
         )

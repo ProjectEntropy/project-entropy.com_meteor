@@ -19,6 +19,8 @@ Template['dashboard'].helpers
     web3.fromWei(Session.get('needed_ether')).toString()
   rpc_host: ->
     web3.currentProvider.host
+  web3connected: ->
+    web3.isConnected()
 
 # When the template is created
 Template['dashboard'].onRendered ->
