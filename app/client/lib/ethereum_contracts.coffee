@@ -1,6 +1,8 @@
 @contractInstance = undefined
 @waiting_for_mining = undefined
 
+# import { casual } from 'casual'
+
 # set ethereum RPC providor
 if !web3.currentProvider
   web3.setProvider new (web3.providers.HttpProvider)('http://localhost:8545')
