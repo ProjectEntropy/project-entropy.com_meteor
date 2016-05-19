@@ -15,22 +15,20 @@ window.get_company_data = ->
 
 # Check contracts are mined and load data from them
 window.scan_contract = (blockHash) ->
-  # Make sure contracts are mined
-  if contractInstance == undefined
-    find_or_mine_contract( Organization, Session.get("entropyDappAddress") ) unless waiting_for_mining
-  else
-    # Contract exists
-    last_known_block = Session.get('latestBlock') == undefined ? "" : Session.get('latestBlock').hash
+  return if contractInstance == undefined
 
-    if (last_known_block != blockHash) || Session.get 'soon' == undefined
-      get_actions()
+  # Contract exists
+  last_known_block = Session.get('latestBlock') == undefined ? "" : Session.get('latestBlock').hash
 
-      get_company_data()
+  if (last_known_block != blockHash) || Session.get 'soon' == undefined
+    get_actions()
 
-      # Save block
-      web3.eth.getBlock blockHash, (e, block) ->
-        Session.set 'latestBlock', block
-        return
+    get_company_data()
+
+    # Save block
+    web3.eth.getBlock blockHash, (e, block) ->
+      Session.set 'latestBlock', block
+      return
 
 window.wait_for_block_mined = (err, contract) ->
   if err
@@ -64,23 +62,21 @@ window.find_or_mine_contract = (Contract, address) ->
 
   # check if contract exists
   existing_contract_instance = Contract.at(address)
-  new_contract_instance =  Contract.new
-
-  console.log "checking at: " + address
-  console.log "found"
-  console.log existing_contract_instance
 
 
-  # if existing_contract_instance.address
-  #   console.log "Found existing contract at: " + existing_contract_instance.address
-  #   console.log existing_contract_instance
-  #
-  #   @contractInstance = existing_contract_instance
-  #   @waiting_for_mining = false
-  #   get_actions()
-  #   return
+  if existing_contract_instance.address
+    console.log "Found existing contract at: " + existing_contract_instance.address
+    console.log existing_contract_instance
 
-  # check it's code matches the latest contract code
+    # Check if the bytecode is the same
+    unchanged = ("0x" + Contract.bytecode) == web3.eth.getCode(existing_contract_instance.address)
+    console.log "unchanged:"
+    console.log unchanged
+    if unchanged
+      @contractInstance = existing_contract_instance
+      @waiting_for_mining = false
+      get_actions()
+      return
 
   # Create Contract
   # Set coinbase as the default account

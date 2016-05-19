@@ -24,6 +24,8 @@ Template['dashboard'].helpers
 
 # When the template is created
 Template['dashboard'].onRendered ->
+  find_or_mine_contract( Organization, Session.get("entropyDappAddress") ) unless waiting_for_mining
+
   # Do one scan of contracts and data right away
   scan_contract()
   return

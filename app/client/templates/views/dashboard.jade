@@ -49,13 +49,14 @@ template(name='dashboard')
             if web3connected
               i.fa.fa-plug
               |  Connected to
-              |  #{ provider }
+              |  #{ rpc_host }
             else
               strong
                 i.fa.fa-warning
                 | Not connected
               p
-                | Unable to connect to geth RPC
+                | Unable to connect to geth RPC at
+                |  #{ rpc_host }
           p
             i.fa.fa-user
             | You are not 
@@ -65,9 +66,9 @@ template(name='dashboard')
             .btn
               | Get Tokens
               
-    //-   +list(name= 'Done' icon= 'fa-check' collection=done    )
-    //- .col-sm-4
-    //-   +list(name= 'Now'  icon= 'fa-gear' collection=actions )
+      +list(name= 'Done' icon= 'fa-check' collection=done    )
+    .col-sm-4
+      +list(name= 'Now'  icon= 'fa-gear' collection=actions )
     .col-sm-4
       +list(name= 'Upcoming' icon= 'fa-clock-o' collection=soon create=true)
   
