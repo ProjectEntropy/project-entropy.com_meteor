@@ -1,4 +1,5 @@
-:sailboat: Project Entropy dApp
+![Image of Entropy](http://bitboatassets.s3.amazonaws.com/bitboat/assets/cat_from_above-62983c38ea2bf422f52a411ff46d3756689ae2f5348f5026819701746d170ffb.jpg)
+:sailboat: Project Entropy
 ===
 ##### The world’s first blockchain research vessel
 
