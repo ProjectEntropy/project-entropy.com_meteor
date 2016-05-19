@@ -9,21 +9,25 @@ Template Controllers
 Template['dashboard'].helpers
   actions: ->
     Actions.find({})
-
   soon: ->
     Session.get('soon')
-
   done: ->
     Session.get('done')
-
   available_ether: ->
-    web3
-    25.237653
+    web3.fromWei(Session.get('available_ether')).toString()
   needed_ether: ->
-    16825.0
+    web3.fromWei(Session.get('needed_ether')).toString()
+  rpc_host: ->
+    web3.currentProvider.host
+  web3connected: ->
+    web3.isConnected()
 
 # When the template is created
 Template['dashboard'].onRendered ->
+  find_or_mine_contract( Organization, Session.get("entropyDappAddress") ) unless waiting_for_mining
+
+  # Do one scan of contracts and data right away
+  scan_contract()
   return
 
 Template['dashboard'].onDestroyed ->
@@ -46,8 +50,8 @@ Template['dashboard'].events 'submit .new-action': (event) ->
 
   params1 = "0x" + web3.sha3(description)
 
-  # addAction(bytes32 key, string _name, uint _kind, bytes32 _data, uint _amount) returns (bool){
-  contractInstance.addAction.sendTransaction( name, name, description, 1, 1, params1, 10, {from: web3.eth.accounts[0], gas:1000000}, (err, result) ->
+  # function addAction(bytes32 key, string _name, string _description, uint _kind, bytes32 _data, uint _amount)
+  contractInstance.addAction.sendTransaction( name, name, description, 1, 1, 10, {from: web3.eth.accounts[0], gas:1000000}, (err, result) ->
     console.log "Added a new action"
     console.log "err"
     if err

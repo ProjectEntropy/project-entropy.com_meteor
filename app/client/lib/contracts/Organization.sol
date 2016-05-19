@@ -3,7 +3,6 @@
 contract Organization {
   struct Action {
     bytes32 previous;
-    bytes32 next;
 
     string name;
     string description;
@@ -28,6 +27,8 @@ contract Organization {
   address owner;
 
   bytes32 public head;
+  uint public available_ether;
+  uint public needed_ether;
 
   mapping(bytes32 => Action) public actions;
 
@@ -41,6 +42,7 @@ contract Organization {
     Action a = actions[key];
     a.vote_count += 1;
   }
+
 
   function addAction(bytes32 key, string _name, string _description, uint _kind, bytes32 _data, uint _amount) returns (bool){
     Action a = actions[key];
@@ -61,11 +63,13 @@ contract Organization {
     a.created = now;
 
     // Link
-    actions[head].next = key;
     a.previous = head;
 
     // Set this element as the new head.
     head = key;
+
+    // Update global record of amount of funds needed
+    needed_ether += a.amount;
 
     return true;
   }

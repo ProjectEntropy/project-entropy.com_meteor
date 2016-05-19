@@ -199,17 +199,17 @@ web3.eth.contractus = (abi, code, options, methods) ->
   return_object
 
 
-  # Helpers for dealing with weird data
-  isHexPrefixed: (str) ->
-    str.slice(0, 2) == '0x'
-  stripHexPrefix: (str) ->
-    if typeof str != 'string'
-      return str
-    if @isHexPrefixed(str) then str.slice(2) else str
-  unpad: (a) ->
-    a = @stripHexPrefix(a)
+# Helpers for dealing with weird data
+isHexPrefixed: (str) ->
+  str.slice(0, 2) == '0x'
+stripHexPrefix: (str) ->
+  if typeof str != 'string'
+    return str
+  if @isHexPrefixed(str) then str.slice(2) else str
+unpad: (a) ->
+  a = @stripHexPrefix(a)
+  first = a[0]
+  while a.length > 0 and first.toString() == '0'
+    a = a.slice(1)
     first = a[0]
-    while a.length > 0 and first.toString() == '0'
-      a = a.slice(1)
-      first = a[0]
-    a
+  a

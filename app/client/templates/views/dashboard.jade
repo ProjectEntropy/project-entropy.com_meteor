@@ -31,31 +31,44 @@ template(name='list')
                 
 template(name='dashboard')
   .row-fluid
-    //- .col-sm-4
-    //-   .panel.panel-default
-    //-     .panel-body
-    //-       i.fa.fa-home
-    //-       p
-    //-         +components_balance
-    //-         
-    //-       p
-    //-         | Total needed funds
-    //-         strong #{ needed_ether } 
-    //-         | ether
-    //-   .panel.panel-default
-    //-     .panel-body
-    //-       p
-    //-         i.fa.fa-user
-    //-         | You are not 
-    //-         a logged in
-    //-         
-    //-       p
-    //-         .btn
-    //-           | Get Tokens
-    //-           
-    //-   +list(name= 'Done' icon= 'fa-check' collection=done    )
-    //- .col-sm-4
-    //-   +list(name= 'Now'  icon= 'fa-gear' collection=actions )
     .col-sm-4
-      +list(name= 'Soon' icon= 'fa-clock-o' collection=soon create=true)
+      .panel.panel-default
+        .panel-body
+          i.fa.fa-home
+          p
+            +components_balance  
+          p
+            | Total needed funds
+            strong 
+            | #{ needed_ether } 
+            | ether
+            
+      .panel.panel-default
+        .panel-body
+          p
+            if web3connected
+              i.fa.fa-plug
+              |  Connected to
+              |  #{ rpc_host }
+            else
+              strong
+                i.fa.fa-warning
+                | Not connected
+              p
+                | Unable to connect to geth RPC at
+                |  #{ rpc_host }
+          p
+            i.fa.fa-user
+            | You are not 
+            a logged in
+            
+          p
+            .btn
+              | Get Tokens
+              
+      +list(name= 'Done' icon= 'fa-check' collection=done    )
+    .col-sm-4
+      +list(name= 'Now'  icon= 'fa-gear' collection=actions )
+    .col-sm-4
+      +list(name= 'Upcoming' icon= 'fa-clock-o' collection=soon create=true)
   

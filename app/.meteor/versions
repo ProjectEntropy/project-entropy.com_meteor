@@ -20,6 +20,7 @@ caching-compiler@1.0.4
 caching-html-compiler@1.0.6
 callback-hook@1.0.8
 cfs:http-methods@0.0.32
+chart:chart@1.0.1-beta.4
 check@1.2.1
 chuangbo:cookie@1.1.0
 coffeescript@1.0.17
@@ -71,6 +72,7 @@ mdg:validation-error@0.5.1
 meteor@1.1.14
 meteor-base@1.0.4
 meteorhacks:async@1.0.0
+meteorhacks:inject-initial@1.0.4
 meteorhacks:npm@1.5.0
 meteorspark:util@0.2.0
 mike:mocha@0.6.6
@@ -133,5 +135,6 @@ velocity:reports@1.0.0
 velocity:shim@0.1.0
 webapp@1.2.8
 webapp-hashing@1.0.9
+webdeb:app-loader@0.0.1
 yasinuslu:blaze-meta@0.3.3
 zimme:iron-router-active@1.0.4
