@@ -23,7 +23,7 @@ window.scan_contract = (blockHash) ->
   last_known_block = Session.get('latestBlock') == undefined ? "" : Session.get('latestBlock').hash
 
   if (last_known_block != blockHash) || Session.get 'soon' == undefined
-    get_actions()
+    # get_actions()
 
     # get_company_data()
 
