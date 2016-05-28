@@ -20,6 +20,7 @@ window.getAllElements = (listContract) ->
   currentKey = head
 
   while !isZero(currentKey)
+
     elem = listContract.actions(currentKey)
     # convert to JS object
     elem = web3.returnObject("actions", elem, listContract.abi)
