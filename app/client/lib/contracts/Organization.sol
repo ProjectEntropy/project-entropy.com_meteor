@@ -32,6 +32,9 @@ contract Organization {
 
   mapping(bytes32 => Action) public actions;
 
+  /*event NewAction(bytes32 key, string _name, string _description, uint _kind, bytes32 _data, uint _amount);*/
+  event NewAction(bytes32 key);
+
   // Constructor
   function Organization() {
     head = "head";
@@ -71,6 +74,8 @@ contract Organization {
     // Update global record of amount of funds needed
     needed_ether += a.amount;
 
+    /*NewAction(key, _name, _description, _kind, _data, _amount);*/
+    NewAction(key);
     return true;
   }
 

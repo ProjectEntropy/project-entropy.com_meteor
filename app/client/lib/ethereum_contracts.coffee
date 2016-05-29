@@ -47,19 +47,34 @@ window.after_tx_callback = (err, contract) ->
     @contractInstance = contract
     @waiting_for_mining = false
 
+    # Watch for new Actions
+    # event = web3.eth.filter({fromBlock:0, toBlock: 'latest', address: @contractInstance.address, 'topics':['0x' + web3.sha3('NewAction(bytes32,string,string,uint,bytes32,uint)')]})
+    #
+    # debugger
+    events = contractInstance.NewAction({}, {fromBlock:1, toBlock: 'latest'})
+    events.watch (err, result) ->
+      console.log "new ACTION!!!"
+      console.log result
+
+      key = result.args.key
+      elem = contractInstance.actions(key)
+      new_action = web3.returnObject("actions", elem, contractInstance.abi)
+
+      console.log new_action
+
     # Add some test activities
     # function addAction(bytes32 key, string _name, string _description, uint _kind, bytes32 _data, uint _amount)
-    for num in [1..3]
+    for num in [1..2]
       contractInstance.addAction.sendTransaction( num, "Sail to Fuji", "we should sail to fuji", 1, "data?", web3.toWei(3.1231), {from: web3.eth.accounts[0], gas:1000000}, (err, result) ->
         console.log "Added a new action"
         )
-
   else
     console.log "waiting for contract to be mined..."
   return
 
 
 window.find_or_mine_contract = (Contract, address) ->
+  console.log "find_or_mine_contract"
   @waiting_for_mining = true
 
   # check if contract exists
@@ -107,5 +122,5 @@ web3.eth.filter('latest').watch (e, blockHash) ->
   if !e
     console.log "| new block seen |"
     scan_contract(blockHash)
-
-  return
+#
+#   return
