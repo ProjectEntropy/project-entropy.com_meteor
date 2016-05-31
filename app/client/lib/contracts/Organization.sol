@@ -33,9 +33,7 @@ contract Organization {
   mapping(bytes32 => Action) public actions;
 
   // Constructor
-  function Organization() {
-    head = "head";
-  }
+  function Organization() {}
 
   function vote(bytes32 key)
   {
