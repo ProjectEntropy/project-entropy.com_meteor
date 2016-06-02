@@ -92,7 +92,7 @@ window.find_or_mine_contract = (Contract, address) ->
     if unchanged
       @contractInstance = existing_contract_instance
       @waiting_for_mining = false
-      get_actions()
+      # get_actions()
       return
 
   # Create Contract
