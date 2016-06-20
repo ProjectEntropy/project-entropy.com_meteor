@@ -41,7 +41,6 @@ ejson
 spacebars
 check
 silentcicero:solc
-mike:mocha
 mquandalle:jade
 standard-minifier-css
 standard-minifier-js
@@ -55,3 +54,4 @@ aldeed:collection2
 u2622:persistent-session
 webdeb:app-loader
 chart:chart
+practicalmeteor:mocha
