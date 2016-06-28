@@ -2,7 +2,6 @@
 contract Organization {
 
   // Action types
-
   struct Action {
 
     uint256 previous;     // Previous in the array
@@ -52,11 +51,10 @@ contract Organization {
     uint yes_votes;  // Total yes votes
     uint no_votes;   // Total no votes
     uint vote_count;   // Total votes
-    /*mapping (address => bool) votedYes;
-    mapping (address => bool) votedNo;*/
+    mapping (address => bool) votedYes;
+    mapping (address => bool) votedNo;
 
   }
-
 
   // first entry of the linked list of actions
   uint256 public head;
@@ -70,6 +68,12 @@ contract Organization {
   event NewAction(uint256 action_key);
   event NewVote(uint256 action_key);
 
+
+  function getAction(uint256 key) returns (bytes32 action)
+  {
+    Action a = actions[key];
+    /*return a;*/
+  }
 
 
   /**
