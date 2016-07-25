@@ -1,6 +1,8 @@
 # test timeout
 timeout = 20000
 
+console.log "HELLO"
+
 describe 'web3 connectivity', ->
   it 'should connect to web3', (done) ->
     web3.setProvider new (web3.providers.HttpProvider)('http://localhost:8545')
