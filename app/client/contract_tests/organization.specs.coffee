@@ -1,7 +1,7 @@
 # test timeout
 timeout = 20000
 
-console.log "HELLO"
+web3 = new Web3();
 
 describe 'web3 connectivity', ->
   it 'should connect to web3', (done) ->
