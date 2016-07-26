@@ -1,13 +1,17 @@
 # test timeout
 timeout = 20000
 
-web3 = new Web3();
+web3 = new Web3()
+
+{ FlowRouter } = require 'meteor/kadira:flow-router'
+chai = require 'chai'
 
 describe 'web3 connectivity', ->
   it 'should connect to web3', (done) ->
     web3.setProvider new (web3.providers.HttpProvider)('http://localhost:8545')
     done()
     return
+
   it 'should provide valid gas price', (done) ->
     web3.eth.getGasPrice (err, result) ->
       chai.assert.isNull err, null

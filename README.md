@@ -22,7 +22,7 @@ Entropy requires you to have a running Ethereum client that supports RPC request
 `$ npm install -g ethereumjs-testrpc`
 
 ### Run the tests :arrow_forward:
-`$ meteor test --driver-package=practicalmeteor:mocha --full-app`
+`$ meteor test --driver-package practicalmeteor:mocha`
 
 
 ### Run Entropy :arrow_forward:
